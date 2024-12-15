@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notion Notifier Popup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      width: 300px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="url"] {
+      width: calc(100% - 60px);
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .delete-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .delete-btn:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Notion Notifier</h1>
+  <form id="popup-form">
+    <label for="notionUrl">Add a shared Notion page URL:</label>
+    <div>
+      <input type="url" id="notionUrl" placeholder="https://www.notion.so/..." required>
+      <button type="button" id="addUrlBtn">Add</button>
+    </div>
+  </form>
+  <h2>Tracked Pages</h2>
+  <ul id="urlList"></ul>
+  <p id="status" style="color: green; display: none;">Saved!</p>
+  <script src="popup.js"></script>
+</body>
+</html>

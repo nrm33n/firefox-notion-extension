@@ -1,0 +1,58 @@
+{
+    "manifest_version": 2,
+    "name": "Notion Update Notifier",
+    "version": "1.0",
+    "description": "Monitors a shared Notion page for updates and sends notifications.",
+    "icons": {
+      "48": "icons/icon48.png",
+      "96": "icons/icon96.png"
+    },
+    "permissions": [
+      "storage", 
+      "alarms", 
+      "notifications", 
+      "activeTab", 
+      "tabs"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": true
+    },
+    "options_ui": {
+      "page": "options.html",
+      "open_in_tab": true
+    },
+    "content_scripts": [
+  {
+    "matches": ["*://www.notion.so/*"],
+    "js": ["content.js"]
+  }
+    ],
+    "browser_action": {
+      "default_icon": {
+        "48": "icons/icon48.png",
+        "96": "icons/icon96.png"
+      },
+      "default_title": "Notion Update Notifier",
+      "default_popup": "popup.html"
+    },
+    "web_accessible_resources": [
+      "icons/*"
+    ],
+    "commands": {
+      "_execute_browser_action": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+U",
+          "mac": "Command+Shift+U"
+        },
+        "description": "Activate Notion Update Notifier"
+      }
+    },
+    "applications": {
+      "gecko": {
+        "id": "notion-update-notifier@yourdomain.com",
+        "strict_min_version": "89.0"
+      }
+    }
+  }
+  
